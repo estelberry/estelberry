@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éstelberry | Premium Strawberry Chocolatier</title>
+    
+    <!-- Подключение премиальных шрифтов -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Базовые настройки и цвета */
+        :root {
+            --bg-color: #2B1B17;      /* Глубокий антрацит-шоколад */
+            --gold: #D4AF37;          /* Матовое шампань-золото */
+            --gold-hover: #f5e1a4;    /* Светлое золото для эффектов */
+            --text-light: #F5E5C0;    /* Слоновая кость для текста */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Hero Section (Главный экран) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero img {
+            max-width: 220px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* О бренде */
+        .about {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: rgba(245, 229, 192, 0.8);
+        }
+
+        /* Каталог */
+        .catalog h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 280px;
+            background: rgba(245, 229, 192, 0.03);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(245, 229, 192, 0.3);
+            font-style: italic;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: rgba(245, 229, 192, 0.7);
+            margin-bottom: 25px;
+        }
+
+        /* Сервис и Footer */
+        .service {
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        /* Анимация плавного появления */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hidden">
+            <!-- Убедись, что файл называется именно logo.png -->
+            <img src="logo.png" alt="Éstelberry Logo">
+            <h1>Éstelberry</h1>
+            <p>Искусство вкуса. Эстетика в каждой детали.</p>
+            <a href="#catalog" class="btn">Открыть каталог</a>
+        </div>
+    </section>
+
+    <!-- Блок о бренде -->
+    <section class="container about hidden">
+        <h2>Тихая роскошь в каждом десерте</h2>
+        <p>Мы не просто создаем десерты. Мы собираем эстетичные композиции, где отборная свежая ягода встречается с премиальным бельгийским шоколадом. Исключительно ручная работа Алики гарантирует идеальное исполнение каждого заказа. Эксклюзивно для жителей Каскелена.</p>
+    </section>
+
+    <!-- Каталог (Заглушки для твоих товаров) -->
+    <section id="catalog" class="container catalog">
+        <h2 class="hidden">Коллекция</h2>
+        <div class="grid">
+            
+            <!-- Карточка 1 -->
+            <div class="card hidden">
+                <div class="card-img-placeholder">Место для фото "Классика"</div>
+                <h3>Classic Collection</h3>
+                <p>Классический набор из 9 свежих ягод в молочном бельгийском шоколаде Callebaut.</p>
+                <a href="https://wa.me/7XXXXXXXXXX?text=Здравствуйте!%20Хочу%20заказать%20Classic%20Collection" class="btn">Заказать</a>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="card hidden">
+                <div class="card-img-placeholder">Место для фото "Премиум"</div>
+                <h3>Premium Gold</h3>
+                <p>Набор из 12 ягод в темном шоколаде с акцентами из настоящего пищевого золота.</p>
+                <a href="https://wa.me/7XXXXXXXXXX?text=Здравствуйте!%20Хочу%20заказать%20Premium%20Gold" class="btn">Заказать</a>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="card hidden">
+                <div class="card-img-placeholder">Место для фото "LAV Special"</div>
+                <h3>Éstelberry x LAV</h3>
+                <p>Особая композиция: премиальный набор ягод и авторский цветочный декор.</p>
+                <a href="https://wa.me/77775758818?text=Здравствуйте!%20Хочу%20заказать%20Éstelberry%20x%20LAV" class="btn">Заказать</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Сервис и Доставка -->
+    <section class="container service hidden">
+        <h2 class="serif">Безупречный сервис</h2>
+        <p style="color: rgba(245, 229, 192, 0.8); max-width: 600px; margin: 20px auto;">Бережная доставка лично в руки по Каскелену. Каждый набор упаковывается в матовую soft-touch коробку и перевязывается фирменной лентой. Мы принимаем предзаказы за 24 часа для обеспечения максимальной свежести.</p>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>© 2026 Éstelberry. Chocolatier de Kaskelen.</p>
+    </footer>
+
+    <!-- Скрипт для анимации появления блоков при прокрутке -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+        
+        // Плавная прокрутка для кнопки на главном экране
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
