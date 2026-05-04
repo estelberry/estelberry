@@ -1,304 +1,247 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éstelberry | Premium Chocolate Fruit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #110D0C; --gold: #D4AF37; --text: #F5E5C0; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; line-height: 1.6; }
+        
+        /* СРОЧНОСТЬ */
+        .scarcity-bar { background: var(--gold); color: #000; padding: 10px; text-align: center; font-weight: 700; font-size: 0.8rem; position: sticky; top: 0; z-index: 1000; letter-spacing: 2px; text-transform: uppercase; }
 
-<title>Éstelberry | Premium Chocolate Strawberries</title>
+        /* ГЛАВНЫЙ ЭКРАН */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .video-bg { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); transform: scale(1.05); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(17,13,12,0.9) 100%); z-index: -1; }
+        
+        .hero-content { z-index: 1; padding: 20px; }
+        .hero img.logo { width: clamp(200px, 35vw, 300px); filter: drop-shadow(0 0 30px rgba(0,0,0,1)); margin-bottom: 20px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 15px; color: #fff; line-height: 1.2; }
+        .hero p { font-size: 1rem; opacity: 0.8; margin-bottom: 35px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+        .btn-gold { display: inline-block; border: 1px solid var(--gold); background: var(--gold); color: #000; padding: 18px 45px; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: .4s; }
+        .btn-gold:hover { background: transparent; color: var(--gold); transform: translateY(-3px); }
+        
+        .trust-bar { margin-top: 25px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 1px; text-transform: uppercase; }
 
-<style>
-:root {
-    --bg:#110D0C;
-    --gold:#D4AF37;
-    --text:#F5E5C0;
-    --card:rgba(255,255,255,0.03);
-}
+        /* БЛОК ЭМОЦИЙ */
+        .emotions { padding: 100px 20px; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.1); }
+        .emotions h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 50px; }
+        .emotion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: auto; }
+        .emotion-box { background: rgba(255,255,255,0.02); padding: 40px; border: 1px solid rgba(212,175,55,0.05); font-weight: 500; font-size: 0.95rem; }
 
-*{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:Montserrat,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-}
+        /* ПОВОДЫ */
+        .occasions { padding: 60px 20px; text-align: center; background: rgba(255,255,255,0.01); }
+        .occasions h3 { font-family: 'Playfair Display', serif; margin-bottom: 30px; opacity: 0.8; font-weight: 400; }
+        .tag { display: inline-block; border: 1px solid var(--gold); padding: 10px 25px; margin: 8px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
 
-/* TOP BAR */
-.scarcity{
-    background:var(--gold);
-    color:#000;
-    text-align:center;
-    padding:10px;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:2px;
-    position:sticky;
-    top:0;
-    z-index:999;
-}
+        /* BRAND INFO */
+        .brand-info { padding: 80px 20px; text-align: center; }
+        .brand-info h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 25px; }
+        .brand-info p { max-width: 650px; margin: auto; font-size: 0.9rem; line-height: 2; opacity: 0.7; font-weight: 300; }
 
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    text-align:center;
-    padding:20px;
-}
+        /* КАТАЛОГ */
+        .catalog { padding: 100px 20px; max-width: 1400px; margin: auto; }
+        .catalog-header { text-align: center; margin-bottom: 70px; }
+        .catalog-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 50px; }
+        .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.08); transition: .5s ease; position: relative; }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .card-img { height: 450px; overflow: hidden; position: relative; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
+        .card:hover .card-img img { transform: scale(1.1); }
 
-.video-bg{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-    filter:brightness(0.5);
-}
+        .badge { position: absolute; top: 20px; left: 0; background: var(--gold); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 2; }
 
-.overlay{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.2), #110D0C);
-    z-index:-1;
-}
+        .card-content { padding: 35px; text-align: center; }
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 0 0 12px 0; font-weight: 400; }
+        .card .desc { font-size: 0.8rem; opacity: 0.5; margin-bottom: 20px; line-height: 1.6; min-height: 40px; }
+        
+        .price-box { margin-bottom: 30px; }
+        .old-p { text-decoration: line-through; opacity: 0.3; font-size: 1.1rem; margin-right: 10px; }
+        .new-p { color: var(--gold); font-size: 1.4rem; font-weight: 700; }
 
-.hero h1{
-    font-family:'Playfair Display',serif;
-    font-size:42px;
-    margin-bottom:15px;
-    line-height:1.2;
-}
+        .btn-wa { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; transition: .3s; }
+        .btn-wa:hover { background: var(--gold); color: #000; }
 
-.hero p{
-    font-size:16px;
-    opacity:0.8;
-    margin-bottom:25px;
-}
+        /* FLOAT WA BUTTON */
+        .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: #fff; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 9999; display: flex; align-items: center; gap: 10px; transition: .3s; }
+        .float-wa:hover { transform: scale(1.05); }
 
-.btn{
-    display:inline-block;
-    background:var(--gold);
-    color:#000;
-    padding:18px 40px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    text-decoration:none;
-}
+        footer { padding: 80px 20px; text-align: center; opacity: 0.4; border-top: 1px solid rgba(212,175,55,0.1); }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 6px; margin-bottom: 15px; }
 
-.trust{
-    margin-top:15px;
-    font-size:12px;
-    opacity:0.6;
-}
-
-/* PROBLEM */
-.problem{
-    padding:80px 20px;
-    text-align:center;
-}
-
-.problem h2{
-    font-family:'Playfair Display';
-    color:var(--gold);
-    margin-bottom:40px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.box{
-    background:var(--card);
-    padding:20px;
-}
-
-/* OCCASIONS */
-.occasions{
-    padding:60px 20px;
-    text-align:center;
-    background:rgba(255,255,255,0.02);
-}
-
-.tag{
-    display:inline-block;
-    border:1px solid var(--gold);
-    padding:10px 20px;
-    margin:5px;
-    font-size:12px;
-}
-
-/* CATALOG */
-.catalog{
-    padding:80px 20px;
-}
-
-.catalog h2{
-    text-align:center;
-    font-family:'Playfair Display';
-    color:var(--gold);
-    margin-bottom:10px;
-}
-
-.catalog p{
-    text-align:center;
-    opacity:0.6;
-    margin-bottom:40px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:var(--card);
-    overflow:hidden;
-}
-
-.card img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-}
-
-.card-body{
-    padding:20px;
-}
-
-.card h3{
-    margin:0;
-    font-family:'Playfair Display';
-}
-
-.price{
-    color:var(--gold);
-    font-size:18px;
-    margin:10px 0;
-}
-
-.card a{
-    display:block;
-    text-align:center;
-    background:var(--gold);
-    color:#000;
-    padding:12px;
-    text-decoration:none;
-    font-weight:700;
-}
-
-/* FLOAT BUTTON */
-.float{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:#fff;
-    padding:15px 18px;
-    border-radius:50px;
-    font-weight:700;
-    text-decoration:none;
-    z-index:999;
-}
-
-footer{
-    text-align:center;
-    padding:50px 20px;
-    opacity:0.4;
-    font-size:12px;
-}
-</style>
+        @media (max-width: 600px) { 
+            .grid { gap: 30px; } 
+            .hero img.logo { width: 240px; }
+            .hero h1 { font-size: 1.8rem; }
+            .float-wa { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.8rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="scarcity">Готовим ограниченное количество заказов в день</div>
+<div class="scarcity-bar">Осталось 12 наборов на сегодня</div>
 
 <section class="hero">
-
-<video class="video-bg" autoplay muted loop playsinline>
-<source src="images/preview.MP4">
-</video>
-
-<div class="overlay"></div>
-
-<div>
-    <h1>Подарок, который запоминают с первого взгляда</h1>
-    <p>Клубника в бельгийском шоколаде Callebaut. Готовим после заказа. Доставка за 120 минут.</p>
-
-    <a class="btn" href="https://wa.me/77775758818?text=Хочу подобрать набор">Подобрать набор</a>
-
-    <div class="trust">Фото перед отправкой • Ручная работа • Оплата при получении</div>
-</div>
-
+    <div class="video-container">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="images/preview.MP4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <img src="logo.PNG" alt="Éstelberry" class="logo">
+        <h1>Подарок, который запоминают с первого взгляда</h1>
+        <p>Клубника в бельгийском шоколаде Callebaut. Готовим индивидуально после вашего заказа.</p>
+        <a href="#catalog" class="btn-gold">Подобрать набор</a>
+        <div class="trust-bar">Фото перед отправкой • Ручная работа • Оплата при получении</div>
+    </div>
 </section>
 
-<section class="problem">
-<h2>Это не десерт. Это эмоция</h2>
-
-<div class="grid">
-<div class="box">🎁 Когда не знаешь, что подарить</div>
-<div class="box">💔 Когда слова не работают</div>
-<div class="box">✨ Когда нужен вау-эффект</div>
-</div>
+<section class="emotions">
+    <h2>Это не десерт. Это эмоция</h2>
+    <div class="emotion-grid">
+        <div class="emotion-box">🎁 Когда не знаешь, что подарить</div>
+        <div class="emotion-box">💔 Когда слова не работают</div>
+        <div class="emotion-box">✨ Когда нужен вау-эффект</div>
+    </div>
 </section>
 
 <section class="occasions">
-<h2>Идеально для</h2>
-<div class="tag">Свидания</div>
-<div class="tag">Подарка</div>
-<div class="tag">Сюрприза</div>
-<div class="tag">Извинения</div>
+    <h3>Идеально для</h3>
+    <div class="tag">Свидания</div>
+    <div class="tag">Подарка</div>
+    <div class="tag">Сюрприза</div>
+    <div class="tag">Извинения</div>
 </section>
 
-<section class="catalog">
-<h2>Выберите эмоцию</h2>
-<p>Не выбирайте десерт — выбирайте момент</p>
-
-<div class="cards">
-
-<div class="card">
-<img src="images/item1.jpg">
-<div class="card-body">
-<h3>Monaco Blush</h3>
-<div class="price">5 500 ₸</div>
-<a href="https://wa.me/77775758818?text=Monaco Blush">Заказать в WhatsApp</a>
-</div>
-</div>
-
-<div class="card">
-<img src="images/item2.JPG">
-<div class="card-body">
-<h3>Midnight Orchard</h3>
-<div class="price">10 500 ₸</div>
-<a href="https://wa.me/77775758818?text=Midnight Orchard">Заказать в WhatsApp</a>
-</div>
-</div>
-
-<div class="card">
-<img src="images/item5.JPG">
-<div class="card-body">
-<h3>Coeur de Velours</h3>
-<div class="price">14 000 ₸</div>
-<a href="https://wa.me/77775758818?text=Coeur de Velours">Заказать в WhatsApp</a>
-</div>
-</div>
-
-</div>
+<section class="brand-info">
+    <h2>Бельгийский шоколад Callebaut</h2>
+    <p>Исключительное качество ингредиентов и свежесть утреннего сбора. <br> Оперативная доставка по Каскелену и Алматы от 120 минут.</p>
 </section>
 
-<a class="float" href="https://wa.me/77775758818">💬 Заказать</a>
+<section class="catalog" id="catalog">
+    <div class="catalog-header">
+        <h2>Наша Коллекция</h2>
+        <p>Выберите вкус вашего момента</p>
+    </div>
+
+    <div class="grid">
+        <!-- 1. Monaco Blush -->
+        <div class="card" style="border-color: var(--gold); background: rgba(212,175,55,0.05);">
+            <div class="card-img">
+                <div class="badge">ТОП ПРОДАЖ</div>
+                <img src="images/item1.jpg" alt="Monaco Blush">
+            </div>
+            <div class="card-content">
+                <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">СПЕЦИАЛЬНАЯ ЦЕНА</div>
+                <h3>Monaco Blush</h3>
+                <p class="desc">9 ягод в белом шоколаде с акцентом из свежей голубики.</p>
+                <div class="price-box">
+                    <span class="old-p">6 500 ₸</span>
+                    <span class="new-p" style="font-size: 1.8rem; display: block; margin-top: 5px;">5 500 ₸</span>
+                </div>
+                <a href="https://wa.me/77775758818?text=Хочу заказать Monaco Blush" class="btn-wa" style="background: var(--gold); color: #000;">Заказать сейчас</a>
+            </div>
+        </div>
+
+        <!-- 2. Midnight Orchard -->
+        <div class="card">
+            <div class="card-img"><img src="images/item2.JPG" alt="Midnight Orchard"></div>
+            <div class="card-content">
+                <h3>Midnight Orchard</h3>
+                <p class="desc">16 крупных ягод в глубоком темном шоколаде с лесной голубикой.</p>
+                <div class="price-box"><span class="new-p">10 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Midnight Orchard" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 3. Duality Luxe -->
+        <div class="card">
+            <div class="card-img"><img src="images/item3.JPG" alt="Duality Luxe"></div>
+            <div class="card-content">
+                <h3>Duality Luxe</h3>
+                <p class="desc">16 ягод. Безупречный баланс темного и белого шоколада.</p>
+                <div class="price-box"><span class="new-p"> 10 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Duality Luxe" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 4. Berry To-Go -->
+        <div class="card">
+            <div class="card-img"><img src="images/item4.JPG" alt="Berry To-Go"></div>
+            <div class="card-content">
+                <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">СПЕЦИАЛЬНАЯ ЦЕНА</div>
+                <h3>Berry To-Go</h3>
+                <p class="desc">7 ягод в фирменном стакане. Элегантный формат для прогулок.</p>
+                <div class="price-box">
+                    <span class="old-p">3 500 ₸</span>
+                    <span class="new-p" style="font-size: 1.8rem; display: block; margin-top: 5px;">2 500 ₸</span>
+                </div>
+                <a href="https://wa.me/77775758818?text=Заказ: Berry To-Go" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 5. Coeur de Velours -->
+        <div class="card">
+            <div class="card-img"><img src="images/item5.JPG" alt="Coeur de Velours"></div>
+            <div class="card-content">
+                <h3>Coeur de Velours</h3>
+                <p class="desc">Премиум-бокс «Сердце». 19 ягод, дуэт шоколада и россыпь голубики.</p>
+                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Coeur de Velours" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 6. Bananier Velvet -->
+        <div class="card">
+            <div class="card-img"><img src="images/item6.JPG" alt="Bananier Velvet"></div>
+            <div class="card-content">
+                <h3>Bananier Velvet</h3>
+                <p class="desc">8 нежных бананов в бархатном темном и белом шоколаде.</p>
+                <div class="price-box"><span class="new-p">3 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Bananier Velvet" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 9. Imperial Heart -->
+        <div class="card">
+            <div class="card-img"><img src="images/item9.JPG" alt="Imperial Heart"></div>
+            <div class="card-content">
+                <h3>Imperial Heart</h3>
+                <p class="desc">25 ягод. Роскошная композиция в большом комбинированном боксе.</p>
+                <div class="price-box"><span class="new-p">16 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Imperial Heart" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 10. Signature Bespoke -->
+        <div class="card">
+            <div class="card-img"><img src="images/item10.JPG" alt="Custom"></div>
+            <div class="card-content">
+                <h3>Signature Bespoke</h3>
+                <p class="desc">Индивидуальные композиции и лимитированные коллекции.</p>
+                <div class="price-box"><span class="new-p">По запросу</span></div>
+                <a href="https://wa.me/77775758818?text=Запрос на эксклюзивный набор" class="btn-wa">Уточнить</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="https://wa.me/77775758818" class="float-wa">
+    <span>💬 Заказать в WhatsApp</span>
+</a>
 
 <footer>
-© Éstelberry • Premium Chocolate Strawberries
+    <div class="footer-logo">ÉSTELBERRY</div>
+    <p>© 2026 KASKELEN • ALMATY</p>
 </footer>
 
 </body>
