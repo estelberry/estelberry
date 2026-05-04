@@ -51,9 +51,20 @@
         .btn-wa { border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
         .btn-wa:hover { background: var(--gold); color: #000; }
 
+        /* СТИЛИ ДЛЯ ФИНАЛЬНОГО БЛОКА CTA */
+        .final-cta { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 20px; border-top: 1px solid rgba(212,175,55,0.1); }
+        .final-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.3); }
+        .final-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg) 0%, transparent 50%, var(--bg) 100%); z-index: -1; }
+        .final-content { z-index: 1; max-width: 800px; }
+        .final-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); color: #fff; margin-bottom: 25px; line-height: 1.3; }
+        .final-sub { font-size: 1rem; opacity: 0.8; margin-bottom: 40px; line-height: 1.8; font-weight: 300; }
+        .btn-main { display: inline-block; background: var(--gold); color: #000; padding: 20px 50px; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; transition: .4s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .btn-main:hover { background: #fff; transform: translateY(-5px); }
+        .final-trust { margin-top: 35px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; font-weight: 500; }
+
         footer { padding: 100px; text-align: center; opacity: 0.2; font-size: 0.7rem; letter-spacing: 4px; }
 
-        @media (max-width: 600px) { .grid { gap: 30px; } .hero img { width: 260px; } }
+        @media (max-width: 600px) { .grid { gap: 30px; } .hero img { width: 260px; } .final-cta { height: auto; padding: 100px 20px; } }
     </style>
 </head>
 <body>
@@ -82,10 +93,9 @@
 <section class="catalog" id="catalog">
     <div class="grid">
         
-       <!-- 1. Monaco Blush (TOP SALES & SPECIAL PRICE) -->
+       <!-- 1. Monaco Blush -->
         <div class="card" style="border-color: var(--gold); background: rgba(212,175,55,0.05);">
             <div class="card-img" style="position: relative;">
-                <!-- Шильдик ТОП ПРОДАЖ -->
                 <div style="position: absolute; top: 20px; left: 0; background: var(--gold); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 2;">
                     ТОП ПРОДАЖ
                 </div>
@@ -133,7 +143,7 @@
             <div class="card-content">
                    <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">
                         СПЕЦИАЛЬНАЯ ЦЕНА
-                     </div>   
+                      </div>   
                      <h3>Berry To-Go</h3>
                      <p class="desc">7 ягод в фирменном стакане. Элегантный формат для прогулок.</p>
                     <div class="price-box">
@@ -210,6 +220,27 @@
             </div>
         </div>
 
+    </div>
+</section>
+
+<!-- ИНТЕГРИРОВАННЫЙ ФИНАЛЬНЫЙ БЛОК -->
+<section class="final-cta">
+    <div class="final-overlay"></div>
+    <video autoplay muted loop playsinline class="final-video">
+        <source src="images/preview.MP4" type="video/mp4">
+    </video>
+    <div class="final-content">
+        <h2>Не откладывайте момент,<br>который можно сделать особенным</h2>
+        <p class="final-sub">
+            Мы готовим ограниченное количество наборов каждый день.  
+            Закажите сейчас — и уже через 2 часа подарок будет у вас.
+        </p>
+        <a href="https://wa.me/77775758818?text=Хочу заказать набор" class="btn-main">
+            Заказать в WhatsApp
+        </a>
+        <div class="final-trust">
+            Фото перед отправкой • Ручная работа • Свежие ягоды каждый день
+        </div>
     </div>
 </section>
 
