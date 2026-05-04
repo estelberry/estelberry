@@ -51,7 +51,7 @@
         .btn-wa { border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
         .btn-wa:hover { background: var(--gold); color: #000; }
 
-        /* CTA BLOCK */
+        /* СТИЛИ ДЛЯ ФИНАЛЬНОГО БЛОКА CTA */
         .final-cta { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 20px; border-top: 1px solid rgba(212,175,55,0.1); }
         .final-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.3); }
         .final-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg) 0%, transparent 50%, var(--bg) 100%); z-index: -1; }
@@ -88,16 +88,10 @@
             height: 35px;
             fill: #fff;
         }
-
+        
         footer { padding: 100px; text-align: center; opacity: 0.2; font-size: 0.7rem; letter-spacing: 4px; }
 
-        @media (max-width: 600px) { 
-            .grid { gap: 30px; } 
-            .hero img { width: 260px; } 
-            .final-cta { height: auto; padding: 100px 20px; }
-            .whatsapp-button { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-            .whatsapp-button svg { width: 28px; height: 28px; }
-        }
+        @media (max-width: 600px) { .grid { gap: 30px; } .hero img { width: 260px; } .final-cta { height: auto; padding: 100px 20px; } }
     </style>
 </head>
 <body>
@@ -118,8 +112,6 @@
     </div>
 </section>
 
-<!-- ... (Блок brand-info и catalog остаются без изменений) ... -->
-
 <section class="brand-info">
     <h2>Бельгийский шоколад Callebaut</h2>
     <p>Исключительное качество ингредиентов и свежесть утреннего сбора. <br> Оперативная доставка по Каскелену и Алматы от 120 минут.</p>
@@ -127,15 +119,142 @@
 
 <section class="catalog" id="catalog">
     <div class="grid">
-        <!-- Ваши товары здесь... -->
-        <!-- Я пропущу их для краткости, оставьте как было в вашем коде -->
+        
+       <!-- 1. Monaco Blush -->
+        <div class="card" style="border-color: var(--gold); background: rgba(212,175,55,0.05);">
+            <div class="card-img" style="position: relative;">
+                <div style="position: absolute; top: 20px; left: 0; background: var(--gold); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 2;">
+                    ТОП ПРОДАЖ
+                </div>
+                <img src="images/item1.jpg" alt="Monaco Blush">
+            </div>
+            <div class="card-content">
+                <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">
+                    СПЕЦИАЛЬНАЯ ЦЕНА
+                </div>
+                <h3>Monaco Blush</h3>
+                <p class="desc">9 ягод в белом шоколаде с акцентом из свежей голубики. Идеальный выбор для первого знакомства.</p>
+                <div class="price-box">
+                    <span class="old-p" style="font-size: 1.1rem;">6 500 ₸</span>
+                    <span class="new-p" style="font-size: 1.8rem; display: block; margin-top: 5px;">5 500 ₸</span>
+                </div>
+                <a href="https://wa.me/77775758818?text=Хочу заказать Monaco Blush по спеццене" class="btn-wa" style="background: var(--gold); color: #000;">Заказать сейчас</a>
+            </div>
+        </div>
+
+        <!-- 2. Midnight Orchard -->
+        <div class="card">
+            <div class="card-img"><img src="images/item2.JPG" alt="Midnight Orchard"></div>
+            <div class="card-content">
+                <h3>Midnight Orchard</h3>
+                <p class="desc">16 крупных ягод в глубоком темном шоколаде с лесной голубикой.</p>
+                <div class="price-box"><span class="new-p">10 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Midnight Orchard" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 3. Duality Luxe -->
+        <div class="card">
+            <div class="card-img"><img src="images/item3.JPG" alt="Duality Luxe"></div>
+            <div class="card-content">
+                <h3>Duality Luxe</h3>
+                <p class="desc">16 ягод. Безупречный баланс темного и белого шоколада Callebaut.</p>
+                <div class="price-box"><span class="new-p"> 10 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Duality Luxe" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 4. Berry To-Go -->
+        <div class="card">
+            <div class="card-img"><img src="images/item4.JPG" alt="Berry To-Go"></div>
+            <div class="card-content">
+                   <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">
+                        СПЕЦИАЛЬНАЯ ЦЕНА
+                      </div>   
+                     <h3>Berry To-Go</h3>
+                     <p class="desc">7 ягод в фирменном стакане. Элегантный формат для прогулок.</p>
+                    <div class="price-box">
+                        <span class="old-p" style="font-size: 1.1rem;">3 500 ₸</span>
+                        <span class="new-p" style="font-size: 1.8rem; display: block; margin-top: 5px;">2 500 ₸</span>
+                 </div>
+                        <a href="https://wa.me/77775758818?text=Заказ: Berry To-Go" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 5. Coeur de Velours -->
+        <div class="card">
+            <div class="card-img"><img src="images/item5.JPG" alt="Coeur de Velours"></div>
+            <div class="card-content">
+                <h3>Coeur de Velours</h3>
+                <p class="desc">Премиум-бокс «Сердце». 19 ягод, дуэт шоколада и россыпь голубики.</p>
+                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Coeur de Velours" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 6. Bananier Velvet -->
+        <div class="card">
+            <div class="card-img"><img src="images/item6.JPG" alt="Bananier Velvet"></div>
+            <div class="card-content">
+                <h3>Bananier Velvet</h3>
+                <p class="desc">8 нежных бананов в бархатном темном и белом шоколаде.</p>
+                <div class="price-box"><span class="new-p">3 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Bananier Velvet" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 7. Infinite Love (Dark) -->
+        <div class="card">
+            <div class="card-img"><img src="images/item7.JPG" alt="Infinite Love Dark"></div>
+            <div class="card-content">
+                <h3>Infinite Love (Dark)</h3>
+                <p class="desc">Бокс «I Love You». 19 ягод в чистом темном бельгийском шоколаде.</p>
+                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Infinite Love Dark" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 8. Infinite Love (Duo) -->
+        <div class="card">
+            <div class="card-img"><img src="images/item8.JPG" alt="Infinite Love Duo"></div>
+            <div class="card-content">
+                <h3>Infinite Love (Duo)</h3>
+                <p class="desc">Бокс «I Love You». Классика в исполнении темного и белого шоколада.</p>
+                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Infinite Love Duo" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 9. Imperial Heart -->
+        <div class="card">
+            <div class="card-img"><img src="images/item9.JPG" alt="Imperial Heart"></div>
+            <div class="card-content">
+                <h3>Imperial Heart</h3>
+                <p class="desc">25 ягод. Роскошная композиция в большом комбинированном боксе.</p>
+                <div class="price-box"><span class="new-p">16 500 ₸</span></div>
+                <a href="https://wa.me/77775758818?text=Заказ: Imperial Heart" class="btn-wa">Заказать</a>
+            </div>
+        </div>
+
+        <!-- 10. Signature Bespoke -->
+        <div class="card">
+            <div class="card-img"><img src="images/item10.JPG" alt="Custom"></div>
+            <div class="card-content">
+                <h3>Signature Bespoke</h3>
+                <p class="desc">Индивидуальные композиции и лимитированные коллекции.</p>
+                <div class="price-box"><span class="new-p">По запросу</span></div>
+                <a href="https://wa.me/77775758818?text=Запрос на эксклюзивный набор" class="btn-wa">Уточнить</a>
+            </div>
+        </div>
+
     </div>
 </section>
 
+<!-- ИНТЕГРИРОВАННЫЙ ФИНАЛЬНЫЙ БЛОК -->
 <section class="final-cta">
     <div class="final-overlay"></div>
     <video autoplay muted loop playsinline class="final-video">
-        <source src="images/previe2.MP4" type="video/mp4">
+        <source src="images/preview.MP4" type="video/mp4">
     </video>
     <div class="final-content">
         <h2>Не откладывайте момент,<br>который можно сделать особенным</h2>
@@ -143,7 +262,7 @@
             Мы готовим ограниченное количество наборов каждый день.  
             Закажите сейчас — и уже через 2 часа подарок будет у вас.
         </p>
-        <a href="https://wa.me/77775758818?text=Хочу заказать" class="btn-main">
+        <a href="https://wa.me/77775758818?text=Хочу заказать набор" class="btn-main">
             Заказать в WhatsApp
         </a>
         <div class="final-trust">
