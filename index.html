@@ -1,287 +1,341 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Éstelberry | Premium Strawberry Chocolatier</title>
-    
-    <!-- Подключение премиальных шрифтов -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Базовые настройки и цвета */
-        :root {
-            --bg-color: #2B1B17;      /* Глубокий антрацит-шоколад */
-            --gold: #D4AF37;          /* Матовое шампань-золото */
-            --gold-hover: #f5e1a4;    /* Светлое золото для эффектов */
-            --text-light: #F5E5C0;    /* Слоновая кость для текста */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éstelberry | Premium Strawberry Chocolatier</title>
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-weight: 400;
-            margin: 0;
-        }
+<style>
+:root {
+    --bg: #2B1B17;
+    --gold: #D4AF37;
+    --gold-soft: #f5e1a4;
+    --text: #F5E5C0;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+}
 
-        section {
-            padding: 100px 0;
-        }
+/* TYPO */
 
-        /* Кнопки */
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-            transition: all 0.4s ease;
-            background: transparent;
-            cursor: pointer;
-        }
+h1,h2,h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+}
 
-        .btn:hover {
-            background-color: var(--gold);
-            color: var(--bg-color);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-        }
+/* BUTTON */
 
-        /* Hero Section (Главный экран) */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
+.btn {
+    padding: 12px 28px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: .3s;
+}
 
-        .hero img {
-            max-width: 220px;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
-        }
+.btn:hover {
+    background: var(--gold);
+    color: var(--bg);
+}
 
-        .hero h1 {
-            font-size: 2.8rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
+/* HERO */
 
-        .hero p {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            font-style: italic;
-            opacity: 0.9;
-        }
+.hero {
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+}
 
-        /* О бренде */
-        .about {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .about h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-        }
+.hero img {
+    width: 200px;
+    margin-bottom: 20px;
+    filter: brightness(1.1) contrast(1.05);
+}
 
-        .about p {
-            font-size: 1.1rem;
-            color: rgba(245, 229, 192, 0.8);
-        }
+.hero h1 {
+    letter-spacing: 6px;
+}
 
-        /* Каталог */
-        .catalog h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 60px;
-        }
+.hero p {
+    opacity: .8;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
+/* ABOUT */
 
-        .card {
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 30px 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            background: rgba(0, 0, 0, 0.1);
-        }
+.about {
+    max-width: 700px;
+    margin: auto;
+    text-align:center;
+    padding: 80px 20px;
+}
 
-        .card:hover {
-            border-color: var(--gold);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
-        }
+/* CATALOG */
 
-        .card-img-placeholder {
-            width: 100%;
-            height: 280px;
-            background: rgba(245, 229, 192, 0.03);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(245, 229, 192, 0.3);
-            font-style: italic;
-        }
+.catalog {
+    padding: 100px 20px;
+}
 
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
+.catalog h2 {
+    text-align:center;
+    margin-bottom:60px;
+}
 
-        .card p {
-            font-size: 0.9rem;
-            color: rgba(245, 229, 192, 0.7);
-            margin-bottom: 25px;
-        }
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+}
 
-        /* Сервис и Footer */
-        .service {
-            text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-        }
+/* PREMIUM CARD */
 
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            letter-spacing: 1px;
-        }
+.card {
+    border-radius:18px;
+    overflow:hidden;
+}
 
-        /* Анимация плавного появления */
-        .hidden {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* IMAGE */
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            section { padding: 60px 0; }
-        }
-    </style>
+.card-media {
+    position:relative;
+    overflow:hidden;
+}
+
+.card-media img {
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    transition: transform .8s ease;
+}
+
+.card:hover img {
+    transform: scale(1.08);
+}
+
+/* OVERLAY */
+
+.overlay {
+    position:absolute;
+    inset:0;
+    background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    opacity:0;
+    transition:.4s;
+}
+
+.card:hover .overlay {
+    opacity:1;
+}
+
+.overlay .btn {
+    margin-bottom:25px;
+    background: var(--gold);
+    color: var(--bg);
+    border:none;
+}
+
+/* TEXT */
+
+.card-content {
+    padding:15px 5px;
+}
+
+.card-content h3 {
+    margin:10px 0 5px;
+}
+
+.card-content p {
+    font-size:14px;
+    opacity:.7;
+}
+
+/* FOOTER */
+
+footer {
+    text-align:center;
+    padding:60px 20px;
+    opacity:.6;
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Главный экран -->
-    <section class="hero">
-        <div class="hidden">
-            <!-- Убедись, что файл называется именно logo.png -->
-            <img src="logo.PNG" alt="Éstelberry Logo">
-            <h1>Éstelberry</h1>
-            <p>Искусство вкуса. Эстетика в каждой детали.</p>
-            <a href="#catalog" class="btn">Открыть каталог</a>
-        </div>
-    </section>
+<section class="hero">
+    <img src="logo.PNG">
+    <h1>Éstelberry</h1>
+    <p>Искусство вкуса. Эстетика в каждой детали.</p>
+    <a href="#catalog" class="btn">Открыть каталог</a>
+</section>
 
-    <!-- Блок о бренде -->
-    <section class="container about hidden">
-        <h2>Тихая роскошь в каждом десерте</h2>
-        <p>Мы не просто создаем десерты. Мы собираем эстетичные композиции, где отборная свежая ягода встречается с премиальным бельгийским шоколадом. Исключительно ручная работа Алики гарантирует идеальное исполнение каждого заказа. Эксклюзивно для жителей Каскелена.</p>
-    </section>
+<section class="about">
+    <h2>Тихая роскошь в каждом десерте</h2>
+    <p>Отборная ягода, премиальный бельгийский шоколад и ручная работа. Каждый набор создается как эстетический объект, а не просто десерт.</p>
+</section>
 
-    <!-- Каталог (Заглушки для твоих товаров) -->
-    <section id="catalog" class="container catalog">
-        <h2 class="hidden">Коллекция</h2>
-        <div class="grid">
-            
-            <!-- Карточка 1 -->
-            <div class="card hidden">
-                <div class="card-img-placeholder">Место для фото "Классика"</div>
-                <h3>Classic Collection</h3>
-                <p>Классический набор из 9 свежих ягод в молочном бельгийском шоколаде Callebaut.</p>
-                <a href="https://wa.me/77775758818?text=Здравствуйте!%20Хочу%20заказать%20Classic%20Collection" class="btn">Заказать</a>
-            </div>
+<section id="catalog" class="catalog">
+<h2>Коллекция</h2>
 
-            <!-- Карточка 2 -->
-            <div class="card hidden">
-                <div class="card-img-placeholder">Место для фото "Премиум"</div>
-                <h3>Premium Gold</h3>
-                <p>Набор из 12 ягод в темном шоколаде с акцентами из настоящего пищевого золота.</p>
-                <a href="https://wa.me/77775758818?text=Здравствуйте!%20Хочу%20заказать%20Premium%20Gold" class="btn">Заказать</a>
-            </div>
+<div class="grid">
 
-            <!-- Карточка 3 -->
-            <div class="card hidden">
-                <div class="card-img-placeholder">Место для фото "LAV Special"</div>
-                <h3>Éstelberry x LAV</h3>
-                <p>Особая композиция: премиальный набор ягод и авторский цветочный декор.</p>
-                <a href="https://wa.me/77775758818?text=Здравствуйте!%20Хочу%20заказать%20Éstelberry%20x%20LAV" class="btn">Заказать</a>
-            </div>
+<!-- 1 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item1.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Monaco Blush" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Monaco Blush</h3>
+<p>Клубника и голубика в белом шоколаде.</p>
+</div>
+</div>
 
-        </div>
-    </section>
+<!-- 2 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item2.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Midnight Kaskelen" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Midnight Kaskelen</h3>
+<p>Темный шоколад и золото.</p>
+</div>
+</div>
 
-    <!-- Сервис и Доставка -->
-    <section class="container service hidden">
-        <h2 class="serif">Безупречный сервис</h2>
-        <p style="color: rgba(245, 229, 192, 0.8); max-width: 600px; margin: 20px auto;">Бережная доставка лично в руки по Каскелену. Каждый набор упаковывается в матовую soft-touch коробку и перевязывается фирменной лентой. Мы принимаем предзаказы за 24 часа для обеспечения максимальной свежести.</p>
-    </section>
+<!-- 3 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item3.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Silk & Ivory" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Silk & Ivory</h3>
+<p>Молочный и белый шоколад.</p>
+</div>
+</div>
 
-    <!-- Подвал -->
-    <footer>
-        <p>© 2026 Éstelberry. Chocolatier de Kaskelen.</p>
-    </footer>
+<!-- 4 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item4.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Velvet Sapphire" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Velvet Sapphire</h3>
+<p>Голубика в шоколаде.</p>
+</div>
+</div>
 
-    <!-- Скрипт для анимации появления блоков при прокрутке -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        });
+<!-- 5 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item5.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Grand Éstelberry" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Grand Éstelberry</h3>
+<p>Большой подарочный сет.</p>
+</div>
+</div>
 
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-        
-        // Плавная прокрутка для кнопки на главном экране
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+<!-- 6 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item6.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Pearl Symphony" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Pearl Symphony</h3>
+<p>Белая эстетика и кокос.</p>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item7.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Truffle Noir" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Truffle Noir</h3>
+<p>Трюфельная текстура какао.</p>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item8.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Golden Hour" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Golden Hour</h3>
+<p>Шоколад и золото.</p>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item9.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Berry Harmony" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Berry Harmony</h3>
+<p>Свежесть и шоколад.</p>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<div class="card-media">
+<img src="images/item10.jpg">
+<div class="overlay">
+<a href="https://wa.me/77775758818?text=Хочу заказать Signature x LAV" class="btn">Заказать</a>
+</div>
+</div>
+<div class="card-content">
+<h3>Signature x LAV</h3>
+<p>Ягоды и цветы.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Éstelberry</p>
+</footer>
+
 </body>
 </html>
