@@ -4,61 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Éstelberry | Premium Chocolate Fruit</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #110D0C; --gold: #D4AF37; --text: #F5E5C0; }
+        :root { --bg: #110D0C; --gold: #D4AF37; --text: #F5E5C0; --dark-card: rgba(255,255,255,0.03); }
         * { box-sizing: border-box; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; line-height: 1.6; }
         
         /* СРОЧНОСТЬ */
-        .scarcity-bar { background: var(--gold); color: #000; padding: 10px; text-align: center; font-weight: 700; font-size: 0.8rem; position: sticky; top: 0; z-index: 100; letter-spacing: 2px; text-transform: uppercase; }
+        .scarcity-bar { background: var(--gold); color: #000; padding: 12px; text-align: center; font-weight: 700; font-size: 0.75rem; position: sticky; top: 0; z-index: 100; letter-spacing: 2px; text-transform: uppercase; }
 
         /* ГЛАВНЫЙ ЭКРАН */
         .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
         .video-bg { width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(17,13,12,0.9) 100%); z-index: -1; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(17,13,12,0.3) 0%, rgba(17,13,12,1) 100%); z-index: -1; }
         
-        .hero-content { text-align: center; z-index: 1; }
-        .hero img { width: clamp(240px, 40vw, 340px); filter: drop-shadow(0 0 30px rgba(0,0,0,1)); margin-bottom: 20px; }
-        .hero-location { font-size: 0.8rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 45px; opacity: 0.8; }
+        .hero-content { text-align: center; z-index: 1; padding: 0 20px; width: 100%; max-width: 800px; }
+        .hero img { width: clamp(200px, 30vw, 280px); margin-bottom: 30px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 15px 0; font-weight: 600; line-height: 1.1; }
+        .hero p.subtitle { font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
+        
+        .btn-main { display: inline-block; background: var(--gold); color: #000; padding: 20px 50px; text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: .3s; }
+        .btn-main:hover { background: #fff; transform: translateY(-3px); }
+        .trust-line { margin-top: 25px; font-size: 0.75rem; opacity: 0.7; letter-spacing: 1px; font-weight: 300; }
 
-        .btn-gold { border: 1px solid var(--gold); color: var(--gold); padding: 18px 45px; text-decoration: none; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 3px; transition: .4s; }
-        .btn-gold:hover { background: var(--gold); color: #000; }
+        /* INSIDE ESTELBERRY (О НАС) */
+        .features { padding: 80px 20px; max-width: 1200px; margin: auto; text-align: center; }
+        .features h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 50px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .feature-item { padding: 20px; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; color: var(--gold); }
+        .feature-item h4 { font-size: 1rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .feature-item p { font-size: 0.85rem; opacity: 0.6; font-weight: 300; }
 
-        /* ПОЗИЦИОНИРОВАНИЕ */
-        .brand-info { padding: 100px 20px; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.1); }
-        .brand-info h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 25px; }
-        .brand-info p { max-width: 650px; margin: auto; font-size: 0.9rem; line-height: 2; opacity: 0.7; font-weight: 300; }
+        /* PERFECT FOR (СЦЕНАРИИ ПОКУПКИ) */
+        .occasions { background: var(--dark-card); padding: 80px 20px; text-align: center; border-top: 1px solid rgba(212,175,55,0.1); border-bottom: 1px solid rgba(212,175,55,0.1); }
+        .occasions h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 40px; }
+        .occasions-list { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .occasion-tag { border: 1px solid var(--gold); padding: 15px 30px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
 
         /* КАТАЛОГ */
         .catalog { padding: 100px 20px; max-width: 1400px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 50px; }
-        .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.08); transition: .5s ease; }
-        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .card-img { height: 450px; overflow: hidden; }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
-        .card:hover .card-img img { transform: scale(1.1); }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 60px; color: var(--gold); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .card { background: var(--dark-card); border: 1px solid rgba(212,175,55,0.08); transition: .4s ease; display: flex; flex-direction: column; }
+        .card:hover { border-color: var(--gold); }
+        .card-img { height: 400px; overflow: hidden; position: relative; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .card:hover .card-img img { transform: scale(1.05); }
 
-        .card-content { padding: 35px; text-align: center; }
-        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 0 0 12px 0; font-weight: 400; }
-        .card .desc { font-size: 0.8rem; opacity: 0.5; margin-bottom: 20px; line-height: 1.6; min-height: 40px; }
+        .badge { position: absolute; top: 20px; left: 0; background: var(--gold); color: #000; padding: 6px 15px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 2; }
+
+        .card-content { padding: 35px 25px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 400; }
+        .card .desc { font-size: 0.85rem; opacity: 0.6; margin-bottom: 25px; font-weight: 300; }
         
-        .price-box { margin-bottom: 30px; }
-        .old-p { text-decoration: line-through; opacity: 0.3; font-size: 0.9rem; margin-right: 10px; }
-        .new-p { color: var(--gold); font-size: 1.4rem; font-weight: 700; }
+        .price-box { margin-bottom: 25px; }
+        .old-p { text-decoration: line-through; opacity: 0.4; font-size: 0.9rem; margin-right: 15px; }
+        .new-p { color: var(--gold); font-size: 1.5rem; font-weight: 600; }
 
-        .btn-wa { border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
+        .btn-wa { display: block; border: 1px solid var(--gold); color: var(--gold); padding: 15px; text-decoration: none; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: .3s; }
         .btn-wa:hover { background: var(--gold); color: #000; }
+        .btn-wa.solid { background: var(--gold); color: #000; }
 
-        footer { padding: 100px; text-align: center; opacity: 0.2; font-size: 0.7rem; letter-spacing: 4px; }
+        footer { padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-logo { max-width: 150px; margin-bottom: 20px; opacity: 0.5; }
+        .footer-text { opacity: 0.3; font-size: 0.7rem; letter-spacing: 3px; }
 
-        @media (max-width: 600px) { .grid { gap: 30px; } .hero img { width: 260px; } }
+        @media (max-width: 768px) { 
+            .trust-line { font-size: 0.65rem; }
+            .occasion-tag { width: 100%; }
+            .card-img { height: 350px; }
+        }
     </style>
 </head>
 <body>
 
-<div class="scarcity-bar">Осталось 12 наборов на сегодня</div>
+<div class="scarcity-bar">Готовим ограниченное количество наборов в день</div>
 
 <section class="hero">
     <div class="video-container">
@@ -69,39 +91,70 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <img src="logo.PNG" alt="Éstelberry">
-        <div class="hero-location">Kaskelen • Almaty</div>
-        <a href="#catalog" class="btn-gold">Коллекция</a>
+        <h1>Премиальная клубника.<br>Бельгийский шоколад.</h1>
+        <p class="subtitle">Доставка по Каскелену и Алматы в день заказа</p>
+        <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу сделать заказ." class="btn-main">Заказать в WhatsApp</a>
+        <div class="trust-line">Готовим после заказа &nbsp;•&nbsp; Фото перед отправкой &nbsp;•&nbsp; Доставка от 120 мин</div>
     </div>
 </section>
 
-<section class="brand-info">
-    <h2>Бельгийский шоколад Callebaut</h2>
-    <p>Исключительное качество ингредиентов и свежесть утреннего сбора. <br> Оперативная доставка по Каскелену и Алматы от 120 минут.</p>
+<section class="features">
+    <h2>Inside Éstelberry</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <div class="feature-icon">🍫</div>
+            <h4>Только Callebaut</h4>
+            <p>Используем 100% бельгийский шоколад. Никакой дешевой глазури.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🍓</div>
+            <h4>Утренний сбор</h4>
+            <p>Отбираем ягоды калибра Gold. Только крупные, сладкие и сочные.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✨</div>
+            <h4>Ручная работа</h4>
+            <p>Каждая ягода глазируется вручную непосредственно перед отправкой.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <h4>Гарантия качества</h4>
+            <p>Если внешний вид отличается от фото — переделаем или вернем деньги.</p>
+        </div>
+    </div>
+</section>
+
+<section class="occasions">
+    <h2>Perfect for...</h2>
+    <div class="occasions-list">
+        <div class="occasion-tag">Особенного вечера</div>
+        <div class="occasion-tag">Сюрприза без повода</div>
+        <div class="occasion-tag">Когда слова не нужны</div>
+    </div>
 </section>
 
 <section class="catalog" id="catalog">
+    <h2 class="section-title">Коллекция</h2>
     <div class="grid">
         
-       <!-- 1. Monaco Blush (TOP SALES & SPECIAL PRICE) -->
-        <div class="card" style="border-color: var(--gold); background: rgba(212,175,55,0.05);">
-            <div class="card-img" style="position: relative;">
-                <!-- Шильдик ТОП ПРОДАЖ -->
-                <div style="position: absolute; top: 20px; left: 0; background: var(--gold); color: #000; padding: 5px 15px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 2;">
-                    ТОП ПРОДАЖ
-                </div>
+        <!-- 1. Monaco Blush -->
+        <div class="card" style="border-color: var(--gold);">
+            <div class="card-img">
+                <div class="badge">Must Try • Спеццена</div>
                 <img src="images/item1.jpg" alt="Monaco Blush">
             </div>
             <div class="card-content">
-                <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">
-                    СПЕЦИАЛЬНАЯ ЦЕНА
+                <div>
+                    <h3>Monaco Blush</h3>
+                    <p class="desc">9 ягод в белом шоколаде с акцентом из свежей голубики. Идеальный выбор для первого знакомства.</p>
                 </div>
-                <h3>Monaco Blush</h3>
-                <p class="desc">9 ягод в белом шоколаде с акцентом из свежей голубики. Идеальный выбор для первого знакомства.</p>
-                <div class="price-box">
-                    <span class="old-p" style="font-size: 1.1rem;">6 500 ₸</span>
-                    <span class="new-p" style="font-size: 1.8rem; display: block; margin-top: 5px;">5 500 ₸</span>
+                <div>
+                    <div class="price-box">
+                        <span class="old-p">6 500 ₸</span>
+                        <span class="new-p">5 500 ₸</span>
+                    </div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать набор Monaco Blush (5500 ₸)." class="btn-wa solid">Хочу этот набор</a>
                 </div>
-                <a href="https://wa.me/77775758818?text=Хочу заказать Monaco Blush по спеццене" class="btn-wa" style="background: var(--gold); color: #000;">Заказать сейчас</a>
             </div>
         </div>
 
@@ -109,10 +162,14 @@
         <div class="card">
             <div class="card-img"><img src="images/item2.JPG" alt="Midnight Orchard"></div>
             <div class="card-content">
-                <h3>Midnight Orchard</h3>
-                <p class="desc">16 крупных ягод в глубоком темном шоколаде с лесной голубикой.</p>
-                <div class="price-box"><span class="new-p">10 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Midnight Orchard" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Midnight Orchard</h3>
+                    <p class="desc">16 крупных ягод в глубоком темном шоколаде с лесной голубикой.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">10 500 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать набор Midnight Orchard (10500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
@@ -120,27 +177,35 @@
         <div class="card">
             <div class="card-img"><img src="images/item3.JPG" alt="Duality Luxe"></div>
             <div class="card-content">
-                <h3>Duality Luxe</h3>
-                <p class="desc">16 ягод. Безупречный баланс темного и белого шоколада Callebaut.</p>
-                <div class="price-box"><span class="new-p"> 10 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Duality Luxe" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Duality Luxe</h3>
+                    <p class="desc">16 ягод. Безупречный баланс темного и белого шоколада Callebaut.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">10 500 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать набор Duality Luxe (10500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
         <!-- 4. Berry To-Go -->
         <div class="card">
-            <div class="card-img"><img src="images/item4.JPG" alt="Berry To-Go"></div>
+            <div class="card-img">
+                <div class="badge" style="background: #fff; color: #000;">Спеццена</div>
+                <img src="images/item4.JPG" alt="Berry To-Go">
+            </div>
             <div class="card-content">
-                   <div style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">
-                        СПЕЦИАЛЬНАЯ ЦЕНА
-                     </div>   
-                     <h3>Berry To-Go</h3>
-                     <p class="desc">7 ягод в фирменном стакане. Элегантный формат для прогулок.</p>
+                <div>
+                    <h3>Berry To-Go</h3>
+                    <p class="desc">7 ягод в фирменном стакане. Элегантный формат для прогулок.</p>
+                </div>
+                <div>
                     <div class="price-box">
-                        <span class="old-p" style="font-size: 1.1rem;">3 500 ₸</span>
-                        <span class="new-p" style="font-size: 1.8rem; display: block; margin-top: 5px;">2 500 ₸</span>
-                 </div>
-                        <a href="https://wa.me/77775758818?text=Заказ: Berry To-Go" class="btn-wa">Заказать</a>
+                        <span class="old-p">3 500 ₸</span>
+                        <span class="new-p">2 500 ₸</span>
+                    </div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать стаканчик Berry To-Go (2500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
@@ -148,10 +213,14 @@
         <div class="card">
             <div class="card-img"><img src="images/item5.JPG" alt="Coeur de Velours"></div>
             <div class="card-content">
-                <h3>Coeur de Velours</h3>
-                <p class="desc">Премиум-бокс «Сердце». 19 ягод, дуэт шоколада и россыпь голубики.</p>
-                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Coeur de Velours" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Coeur de Velours</h3>
+                    <p class="desc">Премиум-бокс «Сердце». 19 ягод, дуэт шоколада и россыпь голубики.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">14 000 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать бокс Coeur de Velours (14000 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
@@ -159,32 +228,50 @@
         <div class="card">
             <div class="card-img"><img src="images/item6.JPG" alt="Bananier Velvet"></div>
             <div class="card-content">
-                <h3>Bananier Velvet</h3>
-                <p class="desc">8 нежных бананов в бархатном темном и белом шоколаде.</p>
-                <div class="price-box"><span class="new-p">3 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Bananier Velvet" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Bananier Velvet</h3>
+                    <p class="desc">8 нежных бананов в бархатном темном и белом шоколаде.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">6 500 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать Bananier Velvet (6500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
         <!-- 7. Infinite Love (Dark) -->
         <div class="card">
-            <div class="card-img"><img src="images/item7.JPG" alt="Infinite Love Dark"></div>
+            <div class="card-img">
+                <div class="badge">Premium Gift</div>
+                <img src="images/item7.JPG" alt="Infinite Love Dark">
+            </div>
             <div class="card-content">
-                <h3>Infinite Love (Dark)</h3>
-                <p class="desc">Бокс «I Love You». 19 ягод в чистом темном бельгийском шоколаде.</p>
-                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Infinite Love Dark" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Infinite Love (Dark)</h3>
+                    <p class="desc">Бокс «I Love You». 19 ягод в чистом темном бельгийском шоколаде.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">14 500 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать бокс Infinite Love Dark (14500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
         <!-- 8. Infinite Love (Duo) -->
         <div class="card">
-            <div class="card-img"><img src="images/item8.JPG" alt="Infinite Love Duo"></div>
+            <div class="card-img">
+                <div class="badge">Premium Gift</div>
+                <img src="images/item8.JPG" alt="Infinite Love Duo">
+            </div>
             <div class="card-content">
-                <h3>Infinite Love (Duo)</h3>
-                <p class="desc">Бокс «I Love You». Классика в исполнении темного и белого шоколада.</p>
-                <div class="price-box"><span class="new-p">14 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Infinite Love Duo" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Infinite Love (Duo)</h3>
+                    <p class="desc">Бокс «I Love You». Классика в исполнении темного и белого шоколада.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">14 500 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать бокс Infinite Love Duo (14500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
@@ -192,10 +279,14 @@
         <div class="card">
             <div class="card-img"><img src="images/item9.JPG" alt="Imperial Heart"></div>
             <div class="card-content">
-                <h3>Imperial Heart</h3>
-                <p class="desc">25 ягод. Роскошная композиция в большом комбинированном боксе.</p>
-                <div class="price-box"><span class="new-p">16 500 ₸</span></div>
-                <a href="https://wa.me/77775758818?text=Заказ: Imperial Heart" class="btn-wa">Заказать</a>
+                <div>
+                    <h3>Imperial Heart</h3>
+                    <p class="desc">25 ягод. Роскошная композиция в большом комбинированном боксе.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">16 500 ₸</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу заказать бокс Imperial Heart (16500 ₸)." class="btn-wa">Хочу этот набор</a>
+                </div>
             </div>
         </div>
 
@@ -203,10 +294,14 @@
         <div class="card">
             <div class="card-img"><img src="images/item10.JPG" alt="Custom"></div>
             <div class="card-content">
-                <h3>Signature Bespoke</h3>
-                <p class="desc">Индивидуальные композиции и лимитированные коллекции.</p>
-                <div class="price-box"><span class="new-p">По запросу</span></div>
-                <a href="https://wa.me/77775758818?text=Запрос на эксклюзивный набор" class="btn-wa">Уточнить</a>
+                <div>
+                    <h3>Signature Bespoke</h3>
+                    <p class="desc">Индивидуальные композиции и лимитированные коллекции под ваш запрос.</p>
+                </div>
+                <div>
+                    <div class="price-box"><span class="new-p">По запросу</span></div>
+                    <a href="https://wa.me/77775758818?text=Здравствуйте! Хочу обсудить индивидуальный заказ." class="btn-wa">Уточнить детали</a>
+                </div>
             </div>
         </div>
 
@@ -214,7 +309,8 @@
 </section>
 
 <footer>
-    <p>© 2026 ÉSTELBERRY • KASKELEN</p>
+    <img src="logo.PNG" alt="Éstelberry" class="footer-logo">
+    <div class="footer-text">© 2026 ÉSTELBERRY • KASKELEN</div>
 </footer>
 
 </body>
