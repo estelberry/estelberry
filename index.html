@@ -51,9 +51,30 @@
         .btn-wa { border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
         .btn-wa:hover { background: var(--gold); color: #000; }
 
-        /* CTA БЛОК */
-        .final-cta { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 20px; border-top: 1px solid rgba(212,175,55,0.1); }
-        .final-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.3); }
+        /* CTA БЛОК С МАСШТАБИРОВАНИЕМ */
+        .final-cta { 
+            position: relative; 
+            height: 80vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            overflow: hidden; 
+            padding: 20px; 
+            border-top: 1px solid rgba(212,175,55,0.1);
+            background-color: var(--bg);
+        }
+        .final-video { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            z-index: -2; 
+            filter: brightness(0.4); 
+            transform: scale(1.1); /* УВЕЛИЧИВАЕМ МАСШТАБ ЧТОБЫ УБРАТЬ ПОЛЯ */
+        }
         .final-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg) 0%, transparent 50%, var(--bg) 100%); z-index: -1; }
         .final-content { z-index: 1; max-width: 800px; }
         .final-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); color: #fff; margin-bottom: 25px; line-height: 1.3; }
